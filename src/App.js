@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// import createStore from './custom-store';
+import store from './store/index';
+import { addBug, bugResolved, getBugs, bugAssignedToUser } from './store/bugs';
+import { addProject } from './store/projects';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function CustomRedux() {
+
+  store.dispatch(addBug({description: 'Bug 1' }));
+  store.dispatch(addBug({description: 'Bug 2' }));
+  store.dispatch(addBug({description: 'Bug 3' }));
+  store.dispatch(bugAssignedToUser({id: 1, userId: 2}));
+  store.dispatch(bugResolved({id: 2 }));
+
+store.dispatch(addProject({name: 'first projects'}))
+  console.log(store.getState());
+  return <div>Hello</div>;
 }
-
-export default App;
