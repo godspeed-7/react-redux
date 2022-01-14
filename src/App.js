@@ -1,6 +1,6 @@
 // import createStore from './custom-store';
 import store from './store/index';
-import { addBug, bugResolved, getBugs, bugAssignedToUser } from './store/bugs';
+import { addBug, bugResolved, loadBugs, bugAssignedToUser } from './store/bugs';
 import { addProject } from './store/projects';
 import { apiCallBegan, apiCallFailed, apiCallSuccess } from './store/api';
 
@@ -27,7 +27,7 @@ export default function CustomRedux() {
   store.dispatch(
     apiCallBegan({
       url: '/bugs',
-      onSuccess: 'bugsReceived',
+      onSuccess: 'bugs/bugsReceived',
       onError: apiCallFailed.type,
     })
   );
