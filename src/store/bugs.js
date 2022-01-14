@@ -17,7 +17,7 @@ const {actions, reducer} = createSlice({
             const bugId = bugs.findIndex(bug => bug.id === action.payload.id);
             bugs[bugId].resolved = true;
         },
-        getBugs: (bugs, action) => {
+        bugsReceived: (bugs, action) => {
 
         },
         bugAssignedToUser: (bugs, action) => {
