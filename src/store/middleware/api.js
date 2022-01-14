@@ -1,17 +1,6 @@
 import axios from 'axios';
 import { apiCallBegan, apiCallFailed, apiCallSuccess } from '../api';
 
-// const action = {
-//     type: "apiCallBegan",
-//     payload: {
-//         url: '/bugs',
-//         method: "get",
-//         data: {},
-//         onSuccess: "bugsReceived",
-//         onError: "apiRequestFailed"
-//     }
-// }
-
 const api =
   ({ dispatch }) =>
   (next) =>

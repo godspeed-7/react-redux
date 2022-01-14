@@ -84,6 +84,4 @@ export const resolveBug = (id) => {
     });
 }
 
-export const { bugAdded, bugResolved, getBugs, bugAssignedToUser, bugsReceived, bugsRequested, bugsRequestedFailed } =
-  actions;
 export default reducer;
