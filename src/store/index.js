@@ -1,11 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
-import bugsReducer from './bugs';
-import projects from './projects';
-
-const reducer = {
-bugsReducer,
-projects
-}
+import { createStore} from 'redux';
+import reducer from './reducers';
 
 const store = configureStore({reducer});
 export default store;
