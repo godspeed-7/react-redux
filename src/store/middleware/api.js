@@ -17,15 +17,19 @@ const api =
   (next) =>
   async (action) => {
     if (action.type !== apiCallBegan.type) return next(action);
-    next(action);
     const {
       url,
       method = 'GET',
       data = {},
       onSuccess,
       onError,
+      onStart,
     } = action.payload;
     try {
+      if(onStart) dispatch({
+        type: onStart
+      });
+      next(action);
       const response = await axios.request({
         baseURL: 'http://localhost:3006/',
         url,
@@ -40,11 +44,11 @@ const api =
           });
       }
     } catch (error) {
-      dispatch(apiCallFailed(error));
+      dispatch(apiCallFailed(error.messsage));
       if (onError) {
         dispatch({
           type: onError,
-          payload: error,
+          payload: error.messsage,
         });
       }
     }

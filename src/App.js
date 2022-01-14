@@ -1,6 +1,6 @@
 // import createStore from './custom-store';
 import store from './store/index';
-import { addBug, bugResolved, loadBugs, bugAssignedToUser } from './store/bugs';
+import { addBug, loadBugs, bugAssignedToUser, resolveBug, assignBugToUser } from './store/bugs';
 import { addProject } from './store/projects';
 import { apiCallBegan, apiCallFailed, apiCallSuccess } from './store/api';
 
@@ -32,5 +32,10 @@ export default function CustomRedux() {
   //   })
   // );
   store.dispatch(loadBugs());
+  // store.dispatch(addBug({description: 'see one'}));
+  setTimeout(() => {
+    store.dispatch(resolveBug(1))
+    store.dispatch(assignBugToUser({id: 1, userId: 123}));
+  }, 1000);
   return <div>Hello</div>;
 }
