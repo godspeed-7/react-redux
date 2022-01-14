@@ -35,7 +35,7 @@ const {actions, reducer} = createSlice({
 })
 
 export const loadBugs = () => {
-    apiCallBegan({
+    return apiCallBegan({
         url: '/bugs',
         onSuccess: actions.bugsReceived.type,
         onError: apiCallFailed.type,
