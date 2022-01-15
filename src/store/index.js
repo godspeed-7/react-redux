@@ -8,5 +8,5 @@ import api from './middleware/api'
 const store = configureStore({reducer,  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), logger, toast, api]});
 
 export default () => {
-    return store;
+    return {...store};
 }

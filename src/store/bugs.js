@@ -26,7 +26,6 @@ const { actions, reducer } = createSlice({
         bugs.loading = false;
       },
     bugResolved: (bugs, action) => {
-      console.log('state bugs', bugs);
       const index = bugs.list.findIndex((bug) => bug.id === action.payload.id);
       bugs.list[index].resolved = true;
     },
