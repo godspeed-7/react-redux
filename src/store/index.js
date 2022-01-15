@@ -6,4 +6,7 @@ import toast from './middleware/toast';
 import api from './middleware/api'
 
 const store = configureStore({reducer,  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware(), logger, toast, api]});
-export default store;
+
+export default () => {
+    return store;
+}

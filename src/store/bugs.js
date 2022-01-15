@@ -13,7 +13,6 @@ const { actions, reducer } = createSlice({
   },
   reducers: {
     bugAdded: (bugs, action) => {
-      console.log('state bugs add', bugs);
       bugs.list.push({
         id: _.random(0, 50000),
         description: action.payload.description,
@@ -82,6 +81,10 @@ export const resolveBug = (id) => {
         onError: actions.bugsRequestedFailed.type,
         // onStart: actions.bugsRequested.type,  
     });
+}
+
+export const getUnresolvedBugs = (bugs) => {
+  return bugs.filter(bug => !bug.resolved);
 }
 
 export default reducer;

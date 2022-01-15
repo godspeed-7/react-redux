@@ -1,10 +1,11 @@
 // import createStore from './custom-store';
-import store from './store/index';
+import configureStore from './store/index';
 import { addBug, loadBugs, bugAssignedToUser, resolveBug, assignBugToUser } from './store/bugs';
 import { addProject } from './store/projects';
 import { apiCallBegan, apiCallFailed, apiCallSuccess } from './store/api';
 
 export default function CustomRedux() {
+  const store = configureStore();
   // store.dispatch(
   //   addBug({
   //     description: 'Bug 1',
@@ -31,11 +32,11 @@ export default function CustomRedux() {
   //     onError: apiCallFailed.type,
   //   })
   // );
-  store.dispatch(loadBugs());
+  // store.dispatch(loadBugs());
   // store.dispatch(addBug({description: 'see one'}));
-  setTimeout(() => {
-    store.dispatch(resolveBug(1))
-    store.dispatch(assignBugToUser({id: 1, userId: 123}));
-  }, 1000);
+  // setTimeout(() => {
+  //   store.dispatch(resolveBug(1))
+  //   store.dispatch(assignBugToUser({id: 1, userId: 123}));
+  // }, 1000);
   return <div>Hello</div>;
 }
