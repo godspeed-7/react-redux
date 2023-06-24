@@ -38,5 +38,5 @@ export default function CustomRedux() {
   //   store.dispatch(resolveBug(1))
   //   store.dispatch(assignBugToUser({id: 1, userId: 123}));
   // }, 1000);
-  return <div>Hello</div>;
+  return <div>Redux toolkit implementation</div>;
 }
